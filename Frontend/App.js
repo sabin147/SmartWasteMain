@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { Camera } from 'expo-camera';
+import { Camera, CameraView } from 'expo-camera';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 
 export default function App() {
@@ -98,13 +98,13 @@ export default function App() {
     if (cameraVisible && cameraPermission) {
         return (
             <View style={styles.container}>
-                <Camera style={styles.camera} ref={cameraRef}>
+                <CameraView style={styles.camera} ref={cameraRef}>
                     <View style={styles.cameraButtonContainer}>
                         <TouchableOpacity style={styles.captureButton} onPress={takePicture}>
                             <View style={styles.captureButtonInner} />
                         </TouchableOpacity>
                     </View>
-                </Camera>
+                </CameraView>
             </View>
         );
     }
